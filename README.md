@@ -173,3 +173,9 @@ k scale -f nginx.deployment.yml --replicas=4
 k port-forward pod/my-nginx-77f7664f5f-48mgl 8080:80
 k port-forward deployment/my-nginx 8080
 ```
+
+## Storage
+
+- Volumes
+- PersistentVolumes & PersistentVolumesClaims
+- StorageClasses
