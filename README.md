@@ -120,3 +120,34 @@ k delete deployment my-nginx
 ```bash
 k create -f nginx.pod.yml --dry-run --validate=true
 ```
+
+### Probe
+
+- **liveness probe**: The kubelet uses liveness probes to know when to restart a container. 
+- **readiness probe**: The kubelet uses readiness probes to know when a container is ready to start accepting traffic. A Pod is considered ready when all of its containers are ready. One use of this signal is to control which Pods are used as backends for Services. When a Pod is not ready, it is removed from Service load balancers.
+- **startup probe**: The kubelet uses startup probes to know when a container application has started. If such a probe is configured, it disables liveness and readiness checks until it succeeds
+
+
+### Deployments
+
+- deployment -> replica set -> pod -> container
+
+```bash
+k create -f nginx.deployment.yml --save-config
+k describe deployment my-nginx
+k apply -f ngix.deployment.yml
+k get deployment --show-labels
+k get deployment -l app=my-nginx
+k scale -f nginx.deployment.yml --replicas=4
+```
+
+### Zero downtime upgrade
+- k8s builtin support, 4 kinds:
+- rolling updates
+  - default
+- blue-green/AB deployments
+  - Multiple envs run at the same time, and proven to work as expected, then promote all traffic to the newer one
+- canary deployments
+  - Very little traffic to new deployments and then proven out by user hiting, then switch all the traffic
+- rollbacks
+  - tried and didn't work, goto previous version
