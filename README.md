@@ -114,3 +114,9 @@ curl 127.0.0.1:8080
 
 k delete deployment my-nginx
 ```
+
+### Yaml
+
+```bash
+k create -f nginx.pod.yml --dry-run --validate=true
+```
