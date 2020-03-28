@@ -151,3 +151,25 @@ k scale -f nginx.deployment.yml --replicas=4
   - Very little traffic to new deployments and then proven out by user hiting, then switch all the traffic
 - rollbacks
   - tried and didn't work, goto previous version
+
+
+## Services
+
+### Why
+- no ephemeral
+- load balaner
+- use label to associate with pods
+- provide endpoint
+
+### Types
+
+- ClusterIp
+- NodePort 
+  - https://hackernoon.com/introducing-nodeport-service-in-kubernetes-ear0360s
+- LoadBalancer
+- ExternalName
+
+```bash
+k port-forward pod/my-nginx-77f7664f5f-48mgl 8080:80
+k port-forward deployment/my-nginx 8080
+```
