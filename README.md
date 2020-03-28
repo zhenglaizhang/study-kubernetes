@@ -1,4 +1,5 @@
 ## Overview
+- https://github.com/kubernetes/examples
 - Pods
 - Deployments
   - ReplicaSet
@@ -177,5 +178,6 @@ k port-forward deployment/my-nginx 8080
 ## Storage
 
 - Volumes
-- PersistentVolumes & PersistentVolumesClaims
+- PersistentVolume -> PersistentVolumesClaim -> volume -> mountPath
 - StorageClasses
+  - dynamic create persistent volume through storage template
