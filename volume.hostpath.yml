@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker-volume
+  labels:
+    name: docker-volume
+spec:
+  containers:
+    - name: docker
+      image: docker
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      command: ["sleep"]
+      args: ["100000"]
+      volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-socket
+  volumes:
+    - name: docker-socket
+      hostPath:
+        path: /var/run/docker.sock
+        type: Socket # DirectoryOrCreate/Directory/FileOrCreate/File/Socket/CharDevice/BlockDevice
+# kubectl exec [pod-name] -it sh -c docker ps
