@@ -181,3 +181,9 @@ k port-forward deployment/my-nginx 8080
 - PersistentVolume -> PersistentVolumesClaim -> volume -> mountPath
 - StorageClasses
   - dynamic create persistent volume through storage template
+
+### ConfigMap
+
+- Be accessed from a pod through:
+  - Environment variables (key/value)
+  - ConfigMap volumes (access as a file)
