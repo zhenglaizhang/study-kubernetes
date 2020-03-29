@@ -187,3 +187,17 @@ k port-forward deployment/my-nginx 8080
 - Be accessed from a pod through:
   - Environment variables (key/value)
   - ConfigMap volumes (access as a file)
+
+
+### Secrets
+
+- https://kubernetes.io/docs/concepts/configuration/secret/#best-practices
+- Is it real secret??
+
+
+```bash
+k create secret generic db-passwords --from-literal=db-password='password' --from-literal=db-root-password='password'
+k get secrets
+k get secrets db-password -o yaml
+k get secrets db-passwords -o yaml
+```
