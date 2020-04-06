@@ -237,6 +237,15 @@ k scale -f nginx.deployment.yml --replicas=4
 - use label to associate with pods
 - provide endpoint
 
+```
+k run alpaca-prod --image=gcr.io/kuar-demo/kuard-amd64:blue --replicas=3 --port=8080 --labels="ver=1,app=alpaca,env=prod"
+k expose deployment alpaca-prod
+k get services -o wide
+# port forward to one the pod
+POD=$(k get pods -l app=alpaca -o jsonpath='{.items[0].metadata.name}')
+k port-forward $POD 48858:8080
+```
+
 ### Types
 
 - ClusterIp
