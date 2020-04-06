@@ -74,6 +74,14 @@
 ### kubectl
 
 - kubectl -> master -> controller manager | scheduler -> nodes
+- namespace
+  - default
+  - --namespace=mystuff
+  - --all-namespaces
+- contxt
+  - `$HOME/.kube/config`
+  - `k config set-context my-context --namespace=mystuff`
+  - `k config use-context my-context`
 
 ```
 k version
