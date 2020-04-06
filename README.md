@@ -82,6 +82,26 @@
   - `$HOME/.kube/config`
   - `k config set-context my-context --namespace=mystuff`
   - `k config use-context my-context`
+- more info
+  - `-o wide`
+  - `-o yaml|json`
+- `--no-headers`
+- JSONPath query language to select fields: `k get pods my-nginx-77f7664f5f-48mgl -o jsonpath --template={.status.podIP}`  
+- `k apply -f obj.yaml`
+  - --dry-run
+  - `k edit <resource-name> <obj-name>`
+- label & annotate
+  - `k label pods docker-volume color=green --overwrite`
+  - `k annotate pods docker-volume color=green --overwrite`
+- debugging commands
+  - `k logs <pod-name> -c <container-name> -f`
+  - `k exec -it nginx-standalone-674b4685f6-shzn9 -- sh` 
+  - `k attach -it <pod-name>`
+  - `k cp <pod-name>:</path/to/remote/file> </path/to/local/file>`
+  - `k port-forward pod/nginx-alpine-emptydir 8080:80`
+  - `k top node`
+  - `k top pod`
+
 
 ```
 k version
@@ -114,6 +134,9 @@ then goto http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/
 ## Pod
 - A pod might contain multiple containers: app + sidecar
 - A single Pod never span across nodes
+- Apps running in the same pod share the same IP address and port space, have the same host name and communicate with each other via IPC
+- will these containers work correctly if they land on different machines?
+- pod manifest, declarative configurtion
 
 ```bash
 k run 
