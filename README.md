@@ -234,6 +234,7 @@ k scale -f nginx.deployment.yml --replicas=4
 ### Why
 - no ephemeral
 - load balaner
+- `alpaca-prod.default.svc.cluster.local`
 - use label to associate with pods
 - provide endpoint
 
