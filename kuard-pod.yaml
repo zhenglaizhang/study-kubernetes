@@ -1,6 +1,14 @@
 # docker run -d --name kuard --publish 8080:8080 gcr.io/kuar-demo/kuard-amd64:blue
 # kubectl apply -f kuard-pod.yaml
 # k describe pods kuard
+# k logs kuard
+# k logs -f kuard
+# k logs --previous kuard
+# better way: log aggregation service
+# k exec kuard -- date
+# k exec -it kuard ash
+# k cp kuard:kuard /tmp/kuard # copy from working dir of pod to local
+# k port-forward kuard 8080:8080
 # k delete pods/kuard
 # k delete -f kuard-pod.yaml
 apiVersion: v1
@@ -11,6 +19,14 @@ spec:
   containers:
     - name: kuard
       image: gcr.io/kuar-demo/kuard-amd64:blue
+      livenessProbe:
+        httpGet:
+          path: /healthy
+          port: 8080
+        initialDelaySeconds: 5
+        timeoutSeconds: 1
+        periodSeconds: 10
+        failureThreshold: 3
       resources:
         limits:
           memory: "128Mi"
