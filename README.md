@@ -71,6 +71,11 @@
 - ectd
   - storage where all the api objects are stored
 
+## Resource Management
+
+- Resource requests: minimal required resources, e.g. CPU, memory, GPU and more...
+- Resource limits: maximal resources
+
 ### kubectl
 
 - kubectl -> master -> controller manager | scheduler -> nodes

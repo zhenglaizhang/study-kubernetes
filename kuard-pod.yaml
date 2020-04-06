@@ -28,9 +28,12 @@ spec:
         periodSeconds: 10
         failureThreshold: 3
       resources:
-        limits:
+        requests:
           memory: "128Mi"
           cpu: "500m"
+        limits:
+          memory: "256Mi"
+          cpu: "1000m"
       ports:
         - containerPort: 8080
           name: http
