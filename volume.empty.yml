@@ -1,3 +1,4 @@
+# A Container crashing does NOT remove a Pod from a node, so the data in an emptyDir volume is safe across Container crashes.
 apiVersion: v1
 kind: Pod
 metadata:
