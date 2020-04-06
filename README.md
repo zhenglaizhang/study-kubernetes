@@ -61,6 +61,16 @@
 - worker nodes
   - run containers onside
 
+## Cluster status
+
+- `k version`
+- `k get componentstatuses`
+- controller manager
+- scheduler
+  - responsible for placing different pods onto different nodes
+- ectd
+  - storage where all the api objects are stored
+
 ### kubectl
 
 - kubectl -> master -> controller manager | scheduler -> nodes
