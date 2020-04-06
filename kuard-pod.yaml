@@ -15,6 +15,14 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: kuard
+  labels:
+    app: kuard
+    ver: 1.0.1
+    env: test
+  annotations:
+    example.com/icon-url: "http://example.com/icon.png"
+    update-reason: "some fake data"
+    updated-by: "manually"
 spec:
   volumes:
     - name: kuard-data

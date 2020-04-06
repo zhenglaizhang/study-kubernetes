@@ -148,6 +148,7 @@ k run
 k create/apply # with yaml
 
 k run nginx-standalone --generator=run-pod/v1 --image=nginx:alpine
+k run nginx-standalone --generator=run-pod/v1 --image=nginx:alpine --labels="ver=1,app=nginx,env=prod"
 k delete pods/nginx-standalone  
 
 
@@ -174,7 +175,21 @@ k port-forward my-nginx-6c79cbc966-dvrcc 8080:80 # external:internal
 curl 127.0.0.1:8080
 
 k delete deployment my-nginx
+k delete deployments --all
 ```
+
+## Labels & Annotation
+
+- `k label deployments my-nginx "canary=true"`
+- `k get deployments --show-labels`
+- `k get pods --show-labels`
+- `k get deployments -L app`
+- Label selectors
+  - `k get pods --selector="app=my-nginx" --show-labels`
+  - `k get pods --selector="app in (nginx,my-nginx)" --show-labels`
+  - `k get pods --selector="app" --show-labels`, if app label is set
+  - `k=v, k!=v, k in (v1, v2), k notin (v1, v2), key, !key`
+  - `k get pods -l 'ver=2,!canary'`
 
 ### Yaml
 
