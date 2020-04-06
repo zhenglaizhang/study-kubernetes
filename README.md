@@ -142,6 +142,9 @@ then goto http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/
 k run 
 k create/apply # with yaml
 
+k run nginx-standalone --generator=run-pod/v1 --image=nginx:alpine
+k delete pods/nginx-standalone  
+
 
 ╰─$ k run my-nginx --image=nginx:alpine                                                                                      130 ↵
 kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
