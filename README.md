@@ -52,6 +52,14 @@
 - `kubectl`
 - Web UI dashboard
 
+## Nodes
+
+- master nodes
+  - api server, scheduler...
+  - manage the cluster
+  - won't schedule work onto master
+- worker nodes
+  - run containers onside
 
 ### kubectl
 
@@ -60,6 +68,9 @@
 ```
 k version
 k cluster-info
+k get nodes
+k describe nodes docker-desktop
+k get nodes/docker-desktop -o yaml
 k get all
 k get pods
 k get services
