@@ -1,5 +1,8 @@
 # docker run -d --name kuard --publish 8080:8080 gcr.io/kuar-demo/kuard-amd64:blue
 # kubectl apply -f kuard-pod.yaml
+# k describe pods kuard
+# k delete pods/kuard
+# k delete -f kuard-pod.yaml
 apiVersion: v1
 kind: Pod
 metadata:
