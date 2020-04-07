@@ -270,6 +270,27 @@ k port-forward pod/my-nginx-77f7664f5f-48mgl 8080:80
 k port-forward deployment/my-nginx 8080
 ```
 
+### Replica sets
+
+- Benefits
+  - Adopting existing containers
+  - Quarantining containers
+- Represent a single, stable microservice
+- Designed for stateless (or nearly stateless) services
+- Horizontal Pod Autoscaling (HPA)
+  - heapster
+  - `k get pods --namespace=kube-system`
+
+```
+k get rs
+k describe rs kuard
+k get pods kuard -o yaml
+k scale replicasets kuard --replicas=4
+
+k delete rs kuard
+k delete rs kuard --cascade=false
+```
+
 ## Storage
 
 - Volumes

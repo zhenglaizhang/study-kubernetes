@@ -1,4 +1,6 @@
 # A Container crashing does NOT remove a Pod from a node, so the data in an emptyDir volume is safe across Container crashes.
+# An emptyDir volume is first created when a Pod is assigned to a Node, and exists as long as that Pod is running on that node.
+# When a Pod is removed from a node for any reason, the data in the emptyDir is deleted forever.
 apiVersion: v1
 kind: Pod
 metadata:
