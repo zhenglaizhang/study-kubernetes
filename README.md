@@ -253,6 +253,8 @@ k describe endpoints alpaca-prod
 
 k get pods -o wide --show-labels
 k get pods -o wide --selector=app=alpaca,env=prod
+
+k delete services,deployments -l app
 ```
 
 ### Types
