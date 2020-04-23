@@ -299,6 +299,13 @@ k delete rs kuard --cascade=false
 - manged by a reconciliation control loop
 - good for autoscaled k8s cluster which nodes may constantly be coming and going without user intervention
 
+### Job
+
+- batch-like workloads
+- short-lived, one-off, e.g. database migration or batch jobs
+- a job creates pods that run until successful termination (exit with 0)
+- `the number of job completions` and `the number of pods to run in parallel`
+
 ## Storage
 
 - Volumes
@@ -325,3 +332,9 @@ k get secrets
 k get secrets db-password -o yaml
 k get secrets db-passwords -o yaml
 ```
+
+## Organizing app
+
+- Filesystems are the source of truth
+- Code review to ensure the quality of changes
+- Feature flags for staged roll forward and roll back
