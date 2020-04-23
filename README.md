@@ -291,6 +291,14 @@ k delete rs kuard
 k delete rs kuard --cascade=false
 ```
 
+### DaemonSet
+
+- For log collector or monitoring agent, etc.
+- use labels to run DaemonSet pods on specific nodes
+- create a copy of a pod on every node unless a node selector is used
+- manged by a reconciliation control loop
+- good for autoscaled k8s cluster which nodes may constantly be coming and going without user intervention
+
 ## Storage
 
 - Volumes
